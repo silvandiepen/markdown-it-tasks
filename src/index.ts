@@ -6,7 +6,7 @@
 import { Options, MarkdownIt, Token, State, StateToken } from "./types";
 
 let options: Options = {
-  disableCheckboxes: true,
+  enabled: false,
   label: false,
   labelAfter: false,
   labelBefore: false,
@@ -27,7 +27,8 @@ const MarkdownItTasks = (md: MarkdownIt, opts: Options) => {
         attrSet(
           tokens[i - 2],
           "class",
-          options.itemClass + (!options.disableCheckboxes ? " enabled" : "")
+          options.itemClass +
+            (options.enabled ? ` ${options.itemClass}--enabled` : ``)
         );
         attrSet(
           tokens[parentToken(tokens, i - 2)],
@@ -101,7 +102,7 @@ const createTodo = (token: Token, TokenConstructor: StateToken): void => {
 
 const makeCheckbox = (token: Token, TokenConstructor: StateToken): Token => {
   const checkbox = new TokenConstructor("html_inline", "", 0);
-  const disabledAttr = options.disableCheckboxes ? ` disabled` : ``;
+  const disabledAttr = options.enabled ? `` : ` disabled`;
   const checked =
     token.content.indexOf("[x] ") === 0 || token.content.indexOf("[X] ") === 0
       ? ` checked`

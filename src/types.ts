@@ -1,5 +1,5 @@
 export interface Options {
-  disableCheckboxes?: boolean;
+  enabled?: boolean;
   label?: boolean;
   labelAfter?: boolean;
   labelBefore?: boolean;

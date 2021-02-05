@@ -86,9 +86,9 @@ describe("Run Markdown", () => {
     const result = md.render(input);
     const output = `<h1>My first file</h1>
 <ul class="task-list">
-<li class="task-list__item"><input class="task-list__input" type="checkbox" checked disabled> This</li>
-<li class="task-list__item"><input class="task-list__input" type="checkbox" checked disabled> Is A</li>
-<li class="task-list__item"><input class="task-list__input" type="checkbox" checked disabled> Basic list</li>
+<li class="task-list__item task-list__item--enabled"><input class="task-list__input" type="checkbox" checked> This</li>
+<li class="task-list__item task-list__item--enabled"><input class="task-list__input" type="checkbox" checked> Is A</li>
+<li class="task-list__item task-list__item--enabled"><input class="task-list__input" type="checkbox" checked> Basic list</li>
 </ul>
 `;
 
@@ -98,6 +98,7 @@ describe("Run Markdown", () => {
   it("Should create a task list with wrapped labels", () => {
     const md = new MarkdownIt();
     md.use(Tasks, {
+      enabled: false,
       label: true,
     });
 
@@ -122,6 +123,7 @@ describe("Run Markdown", () => {
   it("Should create a task list with labels in the end", () => {
     const md = new MarkdownIt();
     md.use(Tasks, {
+      enabled: false,
       label: true,
       labelAfter: true,
     });
@@ -147,6 +149,7 @@ describe("Run Markdown", () => {
   it("Should create a task list with labels in the beginning", () => {
     const md = new MarkdownIt();
     md.use(Tasks, {
+      enabled: false,
       label: true,
       labelAfter: false,
       labelBefore: true,

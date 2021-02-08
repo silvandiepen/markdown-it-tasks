@@ -1,6 +1,6 @@
 {
   "name": "markdown-it-tasks",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Create Task lists with Markdown",
   "main": "dist/index.js",
   "scripts": {

@@ -44,11 +44,8 @@ const attrSet = (token: Token, name: string, value: string): void => {
   const index = token.attrIndex(name);
   const attr = [name, value];
 
-  if (index < 0) {
-    token.attrPush(attr);
-  } else {
-    token.attrs[index] = attr;
-  }
+  if (index < 0) token.attrPush(attr);
+  else token.attrs[index] = attr;
 };
 
 const parentToken = (tokens: Token[], index: number): number => {
@@ -139,23 +136,13 @@ const singleLabel = (
   return token;
 };
 
-const isInline = (token: Token): boolean => {
-  return token.type === "inline";
-};
-const isParagraph = (token: Token): boolean => {
-  return token.type === "paragraph_open";
-};
-const isListItem = (token: Token): boolean => {
-  return token.type === "list_item_open";
-};
+const isInline = (token: Token): boolean => token.type === "inline";
+const isParagraph = (token: Token): boolean => token.type === "paragraph_open";
+const isListItem = (token: Token): boolean => token.type === "list_item_open";
 
-const startsWithTodoMarkdown = (token: Token): boolean => {
-  // leading whitespace in a list item is already trimmed off by markdown-it
-  return (
-    token.content.indexOf("[ ] ") === 0 ||
-    token.content.indexOf("[x] ") === 0 ||
-    token.content.indexOf("[X] ") === 0
-  );
-};
+const startsWithTodoMarkdown = (token: Token): boolean =>
+  token.content.indexOf("[ ] ") === 0 ||
+  token.content.indexOf("[x] ") === 0 ||
+  token.content.indexOf("[X] ") === 0;
 
 export default MarkdownItTasks;

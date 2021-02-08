@@ -14,6 +14,20 @@ A [markdown-it](https://www.npmjs.com/package/markdown-it) plugin to create GitH
 When you have markdown documentation with checklists, rendering HTML checkboxes
 out of the list items looks nicer than the raw square brackets.
 
+## Example
+
+- [ ] This is
+- [ ] A task
+- [x] Which is checked
+- [ ] While the rest are not.
+
+```
+- [ ] This is
+- [ ] A task
+- [X] Which is checked
+- [ ] While the rest are not.
+```
+
 ## Installation
 
 ```sh

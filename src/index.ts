@@ -139,7 +139,6 @@ const singleLabel = (
 const isInline = (token: Token): boolean => token.type === "inline";
 const isParagraph = (token: Token): boolean => token.type === "paragraph_open";
 const isListItem = (token: Token): boolean => token.type === "list_item_open";
-
 const startsWithTodoMarkdown = (token: Token): boolean =>
   token.content.indexOf("[ ] ") === 0 ||
   token.content.indexOf("[x] ") === 0 ||

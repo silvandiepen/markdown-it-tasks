@@ -3,6 +3,7 @@
   "version": "0.0.5",
   "description": "Create Task lists with Markdown",
   "main": "dist/index.js",
+  "homepage": "https://github.com/silvandiepen/markdown-it-tasks#readme"
   "scripts": {
     "test": "jest",
     "build": "tsc",
@@ -14,7 +15,7 @@
     "list"
   ],
   "author": "Sil van Diepen",
-  "license": "MIT",
+  "license": "ISC",
   "devDependencies": {
     "@types/jest": "^26.0.20",
     "@types/markdown-it": "^12.0.1",
